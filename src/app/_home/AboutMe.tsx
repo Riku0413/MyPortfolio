@@ -73,7 +73,7 @@ export default function AboutMe() {
               including backend APIs using Go, as well as frontend development
               with React and GraphQL.{" "}
               <a
-                href="https://starbucks-hsu9s5yrp-riku0413s-projects.vercel.app/"
+                href="https://starbucks-git-update-20240314-riku0413s-projects.vercel.app?_vercel_share=T9p0CX1kX3uuObZsGJjV7CwDSyHl6T9V"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "#228be6", textDecoration: "underline" }}
