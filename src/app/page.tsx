@@ -23,7 +23,6 @@ export default function Home() {
         <AboutMe />
 
         <Space h="xl" />
-        <Space h="xl" />
 
         <Text ta="center" size="40px" fw={700}>
           Featured
