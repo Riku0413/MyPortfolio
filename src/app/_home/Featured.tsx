@@ -4,36 +4,6 @@ import { Carousel } from "@mantine/carousel";
 import { Button, Paper, Text, Title } from "@mantine/core";
 import classes from "./Featured.module.css";
 
-interface CardProps {
-  image: string;
-  title: string;
-  category: string;
-}
-
-function Card({ image, title, category }: CardProps) {
-  return (
-    <Paper
-      shadow="md"
-      p="xl"
-      radius="md"
-      style={{ backgroundImage: `url(${image})` }}
-      className={classes.card}
-    >
-      <div>
-        <Text className={classes.category} size="xs">
-          {category}
-        </Text>
-        <Title order={3} className={classes.title}>
-          {title}
-        </Title>
-      </div>
-      <Button variant="white" color="dark">
-        Read
-      </Button>
-    </Paper>
-  );
-}
-
 const data = [
   {
     image:
@@ -73,25 +43,57 @@ const data = [
   },
 ];
 
+interface CardProps {
+  image: string;
+  title: string;
+  category: string;
+}
+
+function Card({ image, title, category }: CardProps) {
+  return (
+    <Paper
+      shadow="md"
+      p="xl"
+      radius="md"
+      style={{ backgroundImage: `url(${image})` }}
+      className={`bg-green-100 w-[400px] md:w-[400px] lg:w-[400px] ${classes.card}`}
+    >
+      <div>
+        <Text className={classes.category} size="xs">
+          {category}
+        </Text>
+        <Title order={3} className={classes.title}>
+          {title}
+        </Title>
+      </div>
+      <Button variant="white" color="dark">
+        Read
+      </Button>
+    </Paper>
+  );
+}
+
 export default function Featured() {
-  // const theme = useMantineTheme();
-  // const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
   const slides = data.map((item) => (
-    <Carousel.Slide key={item.title}>
+    <Carousel.Slide
+      key={item.title}
+      className="flex flex-col lg:flex-row items-center justify-center"
+    >
       <Card {...item} />
     </Carousel.Slide>
   ));
 
   return (
-    <Carousel
-      slideSize={{ base: "100%", sm: "50%" }}
-      slideGap={{ base: 2, sm: "xl" }}
-      align="start"
-      slidesToScroll={1}
-      loop
-      className="px-15"
-    >
-      {slides}
-    </Carousel>
+    <div>
+      <Carousel
+        slideSize={{ base: "33.333%", sm: "50%", lg: "33.3333%" }}
+        slideGap="md"
+        align="center"
+        slidesToScroll={1}
+        loop
+      >
+        {slides}
+      </Carousel>
+    </div>
   );
 }

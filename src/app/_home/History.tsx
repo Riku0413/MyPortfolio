@@ -35,9 +35,12 @@ export default function History() {
   });
 
   return (
-    <div className="px-10">
+    <div>
       <Table.ScrollContainer minWidth={400}>
-        <Table verticalSpacing="xs" className="bg-white">
+        <Table
+          verticalSpacing="xs"
+          className="bg-white max-w-[90%] md:max-w-[70%] lg:max-w-[904px] mx-auto"
+        >
           <Table.Thead>
             <Table.Tr>
               <Table.Th>MM/YYYY</Table.Th>
