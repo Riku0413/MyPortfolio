@@ -6,7 +6,6 @@ import {
   IconBrandX,
 } from "@tabler/icons-react";
 import { ActionIcon, Anchor, Group } from "@mantine/core";
-import { MantineLogo } from "@mantinex/mantine-logo";
 import classes from "./Footer.module.css";
 import { Avatar } from "@mantine/core";
 import { kanit } from "../_lib/font";

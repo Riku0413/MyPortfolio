@@ -1,7 +1,6 @@
 "use client";
 
-import { Anchor, Group, Progress, Table, Text } from "@mantine/core";
-import classes from "./History.module.css";
+import { Anchor, Table } from "@mantine/core";
 
 const data = [
   {

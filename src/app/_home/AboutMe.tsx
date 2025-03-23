@@ -64,10 +64,10 @@ export default function AboutMe() {
                 </h2>
 
                 <p style={{ fontSize: "16px", lineHeight: 1.6 }}>
-                  Hi, I'm a student at the University of Tokyo majoring in{" "}
-                  <strong>Electrical Engineering</strong>. I'm especially
+                  Hi, I&apos;m a student at the University of Tokyo majoring in{" "}
+                  <strong>Electrical Engineering</strong>. I&apos;m especially
                   interested in technologies such as circuit design, wireless
-                  technology, and machine learning, and I've been conducting
+                  technology, and machine learning, and I&apos;ve been conducting
                   research related to wireless power transfer.{" "}
                   <a
                     href="https://arxiv.org/abs/2503.02183"
@@ -85,7 +85,7 @@ export default function AboutMe() {
                   React and GraphQL.
                   <br />
                   <br />
-                  I'm currently preparing to study abroad at ETH Zurich in
+                  I&apos;m currently preparing to study abroad at ETH Zurich in
                   Switzerland this September through an exchange program.
                 </p>
               </div>

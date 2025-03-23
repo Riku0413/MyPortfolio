@@ -18,10 +18,10 @@ export async function fetchAllMarkdownFromPrivateRepo() {
 
   const files = await res.json();
 
-  const mdFiles = files.filter((file: any) => file.name.endsWith(".md"));
+  const mdFiles = files.filter((file: { name: string }) => file.name.endsWith(".md"));
 
   const markdowns = await Promise.all(
-    mdFiles.map(async (file: any) => {
+    mdFiles.map(async (file: { download_url: string; name: string }) => {
       const mdRes = await fetch(file.download_url, {
         headers: {
           Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,

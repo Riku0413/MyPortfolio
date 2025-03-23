@@ -1,9 +1,7 @@
 "use client";
 
-import { IconSearch } from "@tabler/icons-react";
-import { Autocomplete, Burger, Group, Drawer, ScrollArea } from "@mantine/core";
+import { Burger, Group, Drawer, ScrollArea } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { MantineLogo } from "@mantinex/mantine-logo";
 import classes from "./Header.module.css";
 import Link from "next/link";
 import { Divider } from "@mantine/core";

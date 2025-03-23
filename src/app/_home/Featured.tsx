@@ -1,8 +1,7 @@
 "use client";
 
 import { Carousel } from "@mantine/carousel";
-import { Button, Paper, Text, Title, useMantineTheme } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
+import { Button, Paper, Text, Title } from "@mantine/core";
 import classes from "./Featured.module.css";
 
 interface CardProps {

@@ -7,7 +7,6 @@ import {
   Center,
   Group,
   Text,
-  Image,
   useMantineTheme,
 } from "@mantine/core";
 import classes from "./BlogCard.module.css";
