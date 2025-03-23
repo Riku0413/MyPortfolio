@@ -34,7 +34,7 @@ export default function Home() {
 
         <Space h="xl" />
         <Text ta="center" size="40px" fw={700}>
-          History
+          CV
         </Text>
         <Space h="xl" />
 

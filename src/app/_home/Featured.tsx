@@ -56,7 +56,7 @@ function Card({ image, title, category }: CardProps) {
       p="xl"
       radius="md"
       style={{ backgroundImage: `url(${image})` }}
-      className={`bg-green-100 w-[400px] md:w-[400px] lg:w-[400px] ${classes.card}`}
+      className={`bg-green-100 max-w-[70vw] w-[400px] md:w-[400px] lg:w-[400px] ${classes.card}`}
     >
       <div>
         <Text className={classes.category} size="xs">
@@ -91,6 +91,15 @@ export default function Featured() {
         align="center"
         slidesToScroll={1}
         loop
+        styles={{
+          control: {
+            backgroundColor: "rgba(255, 255, 255, 0.5)",
+            color: "white",
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 1)",
+            },
+          },
+        }}
       >
         {slides}
       </Carousel>

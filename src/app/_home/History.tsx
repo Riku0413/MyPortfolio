@@ -1,6 +1,6 @@
 "use client";
 
-import { Anchor, Table } from "@mantine/core";
+import { Table } from "@mantine/core";
 
 const data = [
   {
@@ -24,11 +24,11 @@ export default function History() {
   const rows = data.map((row) => {
     return (
       <Table.Tr key={row.title}>
-        <Table.Td>{row.year}</Table.Td>
+        <Table.Td className="min-w-[110px]">{row.year}</Table.Td>
         <Table.Td>
-          <Anchor component="button" fz="sm">
-            {row.content}
-          </Anchor>
+          {/* <Anchor component="button" fz="sm"> */}
+          {row.content}
+          {/* </Anchor> */}
         </Table.Td>
       </Table.Tr>
     );

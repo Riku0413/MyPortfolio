@@ -69,10 +69,18 @@ export default function AboutMe() {
               </a>{" "}
               has been accepted to IEEE WPTCE 2025.
               <br />
-              <br />
-              I also have experience developing web applications, including
-              backend APIs using Go, as well as frontend development with React
-              and GraphQL.
+              <br />I also have experience developing web applications,
+              including backend APIs using Go, as well as frontend development
+              with React and GraphQL.{" "}
+              <a
+                href="https://starbucks-hsu9s5yrp-riku0413s-projects.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#228be6", textDecoration: "underline" }}
+              >
+                This
+              </a>{" "}
+              is the first web cite I developed.
               <br />
               <br />
               I&apos;m currently preparing to study abroad at ETH Zurich in
