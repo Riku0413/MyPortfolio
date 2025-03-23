@@ -1,9 +1,7 @@
 "use client";
 
-import { Container, Grid, Skeleton, Space } from "@mantine/core";
+import { Container, Grid, Space } from "@mantine/core";
 import Image from "next/image";
-
-const child = <Skeleton height={420} radius="md" animate={false} />;
 
 export default function AboutMe() {
   return (
@@ -67,8 +65,8 @@ export default function AboutMe() {
                   Hi, I&apos;m a student at the University of Tokyo majoring in{" "}
                   <strong>Electrical Engineering</strong>. I&apos;m especially
                   interested in technologies such as circuit design, wireless
-                  technology, and machine learning, and I&apos;ve been conducting
-                  research related to wireless power transfer.{" "}
+                  technology, and machine learning, and I&apos;ve been
+                  conducting research related to wireless power transfer.{" "}
                   <a
                     href="https://arxiv.org/abs/2503.02183"
                     target="_blank"
