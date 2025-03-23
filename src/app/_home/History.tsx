@@ -24,7 +24,7 @@ export default function History() {
   const rows = data.map((row) => {
     return (
       <Table.Tr key={row.title}>
-        <Table.Td className="min-w-[110px]">{row.year}</Table.Td>
+        <Table.Td className="min-w-[120px]">{row.year}</Table.Td>
         <Table.Td>
           {/* <Anchor component="button" fz="sm"> */}
           {row.content}
@@ -43,7 +43,7 @@ export default function History() {
         >
           <Table.Thead>
             <Table.Tr>
-              <Table.Th>MM/YYYY</Table.Th>
+              <Table.Th className="min-w-[120px]">MM/YYYY</Table.Th>
               <Table.Th>Description</Table.Th>
             </Table.Tr>
           </Table.Thead>
