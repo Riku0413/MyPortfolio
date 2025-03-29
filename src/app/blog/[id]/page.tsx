@@ -5,22 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { client } from "../../_lib/microCMS";
 import { formatToJSTDate } from "@/app/_lib/formatToJSTDate";
+import { notFound } from "next/navigation";
 
-type Props = {
-  params: { id: string };
-};
-
-export default async function Home({ params }: Props) {
-  // const post = await fetchPostFromSubdir(params.id).catch(() => null);
-  // if (!post) return notFound();
-  // const html = await convertMarkdownToHtml(post.content);
-
-  const path = params.id.split("/").pop();
+export default async function Page({params}: {params: Promise<{ id: string }>}) {
+  const path = (await params).id.split("/").pop();
 
   const data = await client.get({
     endpoint: `blog/${path}`,
-  });
-  console.log(data);
+  }).catch(() => null);
+
+  if (!data) return notFound();
 
   return (
     <>
