@@ -44,25 +44,21 @@ export default function History() {
     return (
       <Table.Tr key={row.title}>
         <Table.Td className="min-w-[120px]">{row.year}</Table.Td>
-        <Table.Td>
-          {/* <Anchor component="button" fz="sm"> */}
-          {row.content}
-          {/* </Anchor> */}
-        </Table.Td>
+        <Table.Td>{row.content}</Table.Td>
       </Table.Tr>
     );
   });
 
   return (
-    <div>
-      <Table.ScrollContainer minWidth={400}>
+    <div className="flex flex-col items-center justify-center">
+      <Table.ScrollContainer minWidth={400} className="bg-white w-[90%] md:w-[70%] lg:w-[904px] rounded-md">
         <Table
           verticalSpacing="xs"
-          className="bg-white max-w-[90%] md:max-w-[70%] lg:max-w-[904px] mx-auto"
+          className="bg-white mx-auto overflow-hidden"
         >
           <Table.Thead>
             <Table.Tr>
-              <Table.Th className="min-w-[120px]">MM/YYYY</Table.Th>
+              <Table.Th className="min-w-[120px]">Month-Year</Table.Th>
               <Table.Th>Description</Table.Th>
             </Table.Tr>
           </Table.Thead>

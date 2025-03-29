@@ -6,6 +6,7 @@ import {
   Card,
   Center,
   Group,
+  Space,
   Text,
   useMantineTheme,
 } from "@mantine/core";
@@ -26,21 +27,20 @@ import { formatToJSTDate } from "../_lib/formatToJSTDate";
 
 export type BlogData = {
   id: string;
-  createdAt?: string;       // ISO 8601 形式の日付
+  createdAt?: string; // ISO 8601 形式の日付
   updatedAt?: string;
   publishedAt?: string;
   revisedAt?: string;
   title: string;
   description: string;
-  date: string;            // 日付（例: "2025-03-16T15:00:00.000Z"）
-  content: string;         // HTML文字列
+  date: string; // 日付（例: "2025-03-16T15:00:00.000Z"）
+  content: string; // HTML文字列
   ogp?: {
     url: string;
     height?: number;
     width?: number;
   };
 };
-
 
 export default function BlogCard({ data }: { data: BlogData }) {
   const theme = useMantineTheme();
@@ -87,8 +87,8 @@ export default function BlogCard({ data }: { data: BlogData }) {
                 </Text>
               </div>
 
-              <Group mt="sm" gap="xs">
-                <Text size="xs" c="dimmed">
+              <Group gap="xs">
+                <Text c="dimmed" size="xs" tt="uppercase" fw={700}>
                   {formatToJSTDate(data.date)}
                 </Text>
               </Group>
@@ -133,9 +133,15 @@ export default function BlogCard({ data }: { data: BlogData }) {
 
         <div style={{ flex: 1 }} className="flex flex-col justify-between">
           <div>
-            <Text className={classes.title} fw={500}>
+            <Space h="xs" />
+            <Text
+              className={classes.title + "leading-snug line-clamp-1"}
+              fw={600}
+              size="md"
+            >
               {data.title}
             </Text>
+            <Space h="xs" />
 
             <Text fz="sm" c="dimmed" lineClamp={4}>
               {data.description}
@@ -143,8 +149,8 @@ export default function BlogCard({ data }: { data: BlogData }) {
           </div>
           <Group justify="space-between" className={classes.footer}>
             <Center>
-              <Text fz="sm" inline>
-                {data.date}
+              <Text c="dimmed" size="xs" tt="uppercase" fw={700}>
+                {formatToJSTDate(data.date)}
               </Text>
             </Center>
           </Group>

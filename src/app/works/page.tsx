@@ -27,6 +27,7 @@ export default async function Home() {
         <GlayImage title="Works" url="/works.jpg" />
         <Space h="xl" />
         <WorksGrid dataArray={dataArray} />
+        <Space h="xl" />
       </div>
       <Footer></Footer>
     </>

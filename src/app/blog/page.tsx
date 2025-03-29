@@ -118,7 +118,6 @@ export default async function Home() {
             </li>
           ))}
         </ul> */}
-        <Space h="xl" />
         <BlogGrid dataArray={dataArray} />
         <Space h="xl" />
       </div>

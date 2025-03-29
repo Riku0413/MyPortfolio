@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@mantine/core/styles.css";
 import "./globals.css";
-import '@mantine/carousel/styles.css';
-
+import "@mantine/carousel/styles.css";
 
 import {
   ColorSchemeScript,
@@ -22,7 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "My Mantine app",
+  title: "Riku Kobayashi",
   description: "I have followed setup instructions carefully",
 };
 
@@ -35,6 +34,7 @@ export default function RootLayout({
     <html lang="en" {...mantineHtmlProps}>
       <head>
         <ColorSchemeScript />
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

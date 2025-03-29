@@ -27,7 +27,7 @@ export default function ResearchCard({ data }: { data: ResearchData }) {
       withBorder
       radius="md"
       p={0}
-      className="w-[90%] sm:w-[70%] md:w-[90%] lg:w-[900px] mx-auto transition-transform shadow-sm hover:scale-[1.005] hover:shadow-md duration-150 ease-in-out"
+      className="w-[90%] sm:w-[70%] md:w-[90%] lg:w-[900px] mx-auto transition-transform shadow-sm hover:scale-[1.01] hover:shadow-md duration-150 ease-in-out"
     >
       <a href={data.url} target="_blank" rel="noopener noreferrer">
         <div className="flex flex-col md:flex-row">

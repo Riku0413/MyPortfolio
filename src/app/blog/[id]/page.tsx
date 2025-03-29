@@ -28,7 +28,7 @@ export default async function Page({params}: {params: Promise<{ id: string }>}) 
         <Space h="xl" />
         <div className="max-w-3xl mx-auto">
           <div className="flex flex-col items-center">
-            <h1 className="font-bold text-4xl w-[80%] text-center leading-[1.5]">
+            <h1 className="font-bold text-2xl w-[80%] text-center leading-[1.5]">
               {data.title}
             </h1>
             <p className="text-sm text-gray-500 mt-8 mb-4">

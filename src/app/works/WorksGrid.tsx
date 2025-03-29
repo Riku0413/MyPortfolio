@@ -35,6 +35,7 @@ export default function WorksGrid({ dataArray }: { dataArray: WorksData[] }) {
       <Card
         key={article.title}
         p="md"
+        withBorder
         radius="md"
         className={classes.card}
       >
@@ -52,7 +53,7 @@ export default function WorksGrid({ dataArray }: { dataArray: WorksData[] }) {
   ));
 
   return (
-    <Container py="xl">
+    <Container>
       <SimpleGrid cols={{ base: 1, sm: 2 }}>{cards}</SimpleGrid>
     </Container>
   );
