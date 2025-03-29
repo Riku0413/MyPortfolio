@@ -258,3 +258,7 @@ body {
 .markdown .hljs-type {
   color: #4ec9b0;
 }
+
+html, body {
+  overflow-x: hidden;
+}
