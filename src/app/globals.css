@@ -48,6 +48,60 @@ body {
   border-bottom: 1px solid #ddd;
 }
 
+.markdown h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.markdown h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.markdown h5 {
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.markdown h6 {
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.markdown blockquote {
+  margin-bottom: 1rem;
+  padding: 0rem 1rem;
+  border-left: 4px solid #ddd;
+}
+
+.markdown ol {
+  padding-left: 1.5rem;
+  list-style-type: decimal;
+}
+
+.markdown hr {
+  margin: 1rem 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.markdown a {
+  color: #0070f3;
+  text-decoration: none;
+  border-bottom: 1px solid #0070f3;
+}
+
 .markdown p {
   margin-bottom: 1rem;
   line-height: 1.75;
@@ -56,4 +110,151 @@ body {
 .markdown ul {
   padding-left: 1.5rem;
   list-style-type: disc;
+}
+
+.markdown img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.markdown table {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  width: max-content;
+  max-width: 100%;
+}
+
+.markdown thead {
+  background-color: #f6f8fa;
+  font-weight: bold;
+}
+
+.markdown th,
+.markdown td {
+  border: 1px solid #d0d7de;
+  padding: 0.6em 1em;
+  text-align: left;
+}
+
+.markdown tr:nth-child(even) {
+  background-color: #f6f8fa;
+}
+
+.markdown td[align="left"] {
+  text-align: left;
+}
+
+.markdown td[align="center"] {
+  text-align: center;
+}
+
+.markdown td[align="right"] {
+  text-align: right;
+}
+
+.markdown th[align="left"] {
+  text-align: left;
+}
+
+.markdown th[align="center"] {
+  text-align: center;
+}
+
+.markdown th[align="right"] {
+  text-align: right;
+}
+
+.markdown code {
+  background-color: #f6f8fa;
+  color: #e83e8c;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 85%;
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+}
+
+.markdown pre {
+  background-color: #1e1e1e; /* ダークな背景 */
+  color: #d4d4d4; /* デフォルト文字色 */
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-family: "SFMono-Regular", Consolas, "Courier New", monospace;
+  margin-bottom: 1rem;
+}
+
+.markdown pre code {
+  background-color: transparent;
+  color: inherit;
+}
+
+/* 共通 */
+.markdown code.hljs {
+  color: #d4d4d4;
+  background: none;
+}
+
+.markdown pre,
+.markdown code.hljs {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+/* コメント */
+.markdown .hljs-comment {
+  color: #6a9955;
+  font-style: italic;
+}
+
+/* キーワード（if, return, def など） */
+.markdown .hljs-keyword {
+  color: #c586c0;
+}
+
+/* 関数名・クラス名 */
+.markdown .hljs-title,
+.markdown .hljs-function,
+.markdown .hljs-title.class_ {
+  color: #4ec9b0;
+}
+
+/* 属性名・変数名・引数 */
+.markdown .hljs-attr,
+.markdown .hljs-variable,
+.markdown .hljs-parameter {
+  color: #9cdcfe;
+}
+
+/* 文字列（"..." など） */
+.markdown .hljs-string {
+  color: #ce9178;
+}
+
+/* 数値・リテラル・定数 */
+.markdown .hljs-number,
+.markdown .hljs-literal {
+  color: #b5cea8;
+}
+
+/* HTMLタグ・その他のタグ構文 */
+.markdown .hljs-tag {
+  color: #569cd6;
+}
+
+/* 組み込み関数（printなど） */
+.markdown .hljs-built_in {
+  color: #dcdcaa;
+}
+
+/* 型名（TypeScriptなど） */
+.markdown .hljs-type {
+  color: #4ec9b0;
 }

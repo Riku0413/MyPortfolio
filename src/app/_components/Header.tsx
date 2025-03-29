@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Divider } from "@mantine/core";
 import { Avatar } from "@mantine/core";
 import { kanit } from "../_lib/font";
+import { usePathname } from "next/navigation";
 
 const links = [
   { link: "/", label: "Home" },
@@ -17,25 +18,37 @@ const links = [
 
 export default function Header() {
   const [opened, { toggle, close }] = useDisclosure(false);
-  // <Link href="/" onClick={close} className="text-lg hover:underline">
-  //   Home
-  // </Link>;
-  const items = links.map((link) => (
-    <Link key={link.label} href={link.link} className={classes.link}>
-      {link.label}
-    </Link>
-  ));
+  const pathname = usePathname();
+
+  const items = links.map((link) => {
+    const isActive = pathname === link.link;
+
+    return (
+      <Link
+        key={link.label}
+        href={link.link}
+        className={`block leading-none px-3 py-2 rounded-sm text-sm font-bold transition ${
+          isActive
+            ? "text-sky-600"
+            : "text-gray-700 dark:text-gray-100 hover:text-sky-600"
+        }`}
+      >
+        {link.label}
+      </Link>
+    );
+  });
 
   return (
     <header className={classes.header}>
       <div className={classes.inner}>
-        <Group>
-          {/* <MantineLogo size={28} /> */}
-          <Avatar src="fuji.jpg" alt="it's me" size="sm" />
-          <h1 className={`text-2xl text-gray-600 ${kanit.className}`}>
-            Riku Kobayashi
-          </h1>
-        </Group>
+        <Link href="/">
+          <Group className="cursor-pointer">
+            <Avatar src="/fuji.jpg" alt="it's me" size="sm" />
+            <h1 className={`text-2xl text-gray-600 ${kanit.className}`}>
+              Riku Kobayashi
+            </h1>
+          </Group>
+        </Link>
 
         <Group>
           {/* <Autocomplete
@@ -53,7 +66,7 @@ export default function Header() {
             ]}
             // visibleFrom="xs"
           /> */}
-          <Group ml={50} gap={5} className={classes.links} visibleFrom="md">
+          <Group ml={50} gap={5} visibleFrom="md">
             {items}
           </Group>
           <Burger
@@ -66,7 +79,16 @@ export default function Header() {
           <Drawer
             opened={opened}
             onClose={close}
-            title="Portfolio"
+            title={
+              <Link href="/">
+                <Group className="cursor-pointer">
+                  <Avatar src="/fuji.jpg" alt="it's me" size="sm" />
+                  <h1 className={`text-xl text-gray-600 ${kanit.className}`}>
+                    Riku Kobayashi
+                  </h1>
+                </Group>
+              </Link>
+            }
             padding="md"
             size="xs"
             overlayProps={{ opacity: 0.5, blur: 4 }}
@@ -77,28 +99,28 @@ export default function Header() {
                 <Link
                   href="/"
                   onClick={close}
-                  className="text-lg hover:underline"
+                  className="text-lg text-gray-700 hover:text-sky-600 transition-colors"
                 >
                   Home
                 </Link>
                 <Link
                   href="/research"
                   onClick={close}
-                  className="text-lg hover:underline"
+                  className="text-lg text-gray-700 hover:text-sky-600 transition-colors"
                 >
                   Research
                 </Link>
                 <Link
                   href="/works"
                   onClick={close}
-                  className="text-lg hover:underline"
+                  className="text-lg text-gray-700 hover:text-sky-600 transition-colors"
                 >
                   Works
                 </Link>
                 <Link
                   href="/blog"
                   onClick={close}
-                  className="text-lg hover:underline"
+                  className="text-lg text-gray-700 hover:text-sky-600 transition-colors"
                 >
                   Blog
                 </Link>

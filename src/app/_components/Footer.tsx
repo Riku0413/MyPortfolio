@@ -39,12 +39,14 @@ export default function Footer() {
     <div className={classes.footer}>
       <div className={classes.inner}>
         {/* <MantineLogo size={28} /> */}
-        <Group>
-          <Avatar src="fuji.jpg" alt="it's me" size="sm" />
-          <h1 className={`text-2xl text-gray-600 ${kanit.className}`}>
-            Riku Kobayashi
-          </h1>
-        </Group>
+        <Link href="/">
+          <Group>
+            <Avatar src="/fuji.jpg" alt="it's me" size="sm" />
+            <h1 className={`text-2xl text-gray-600 ${kanit.className}`}>
+              Riku Kobayashi
+            </h1>
+          </Group>
+        </Link>
 
         <Group className={classes.links}>{items}</Group>
 
