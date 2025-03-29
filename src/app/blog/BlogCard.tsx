@@ -78,7 +78,7 @@ export default function BlogCard({ data }: { data: BlogData }) {
               className="flex flex-col justify-between"
             >
               <div>
-                <Text fw={600} size="md" mb={6}>
+                <Text fw={600} size="md" mb={6} lineClamp={1}>
                   {data.title}
                 </Text>
 
