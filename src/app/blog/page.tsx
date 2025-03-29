@@ -53,7 +53,7 @@ import Footer from "../_components/Footer";
 import GlayImage from "../_components/GlayImage";
 import { Space } from "@mantine/core";
 import BlogGrid from "./BlogGrid";
-import { fetchAllMetaFromPrivateRepo } from "../_lib/github_list"; // ← メタだけ取得
+// import { fetchAllMetaFromPrivateRepo } from "../_lib/github_list"; // ← メタだけ取得
 import { client } from "../_lib/microCMS";
 import { BlogData } from "./BlogCard";
 
@@ -83,8 +83,8 @@ import { BlogData } from "./BlogCard";
 // ];
 
 export default async function Home() {
-  const posts = await fetchAllMetaFromPrivateRepo();
-  console.log(posts);
+  // const posts = await fetchAllMetaFromPrivateRepo();
+  // console.log(posts);
 
   const data = await client.get({
     endpoint: "blog",
