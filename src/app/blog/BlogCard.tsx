@@ -58,7 +58,7 @@ export default function BlogCard({ data }: { data: BlogData }) {
           p={0}
           style={{ overflow: "hidden", cursor: "pointer" }}
           className={classes.card}
-          component="a"
+          component="div"
         >
           <div style={{ display: "flex", width: "100%", height: "150px" }}>
             <Card.Section className="pr-4">
@@ -69,6 +69,7 @@ export default function BlogCard({ data }: { data: BlogData }) {
                   fill
                   className="object-cover"
                   priority
+                  loading="eager"
                 />
               </div>
             </Card.Section>
@@ -107,7 +108,7 @@ export default function BlogCard({ data }: { data: BlogData }) {
         radius="md"
         className={classes.card}
         style={{ height: "380px", cursor: "pointer" }}
-        component="a"
+        component="div"
       >
         <Card.Section>
           <div className="relative w-full h-[200px]">
@@ -117,6 +118,7 @@ export default function BlogCard({ data }: { data: BlogData }) {
               fill
               className="object-cover"
               priority
+              loading="eager"
             />
           </div>
         </Card.Section>

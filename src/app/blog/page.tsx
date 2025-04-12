@@ -53,72 +53,76 @@ import Footer from "../_components/Footer";
 import GlayImage from "../_components/GlayImage";
 import { Space } from "@mantine/core";
 import BlogGrid from "./BlogGrid";
-// import { fetchAllMetaFromPrivateRepo } from "../_lib/github_list"; // ← メタだけ取得
 import { client } from "../_lib/microCMS";
-import { BlogData } from "./BlogCard";
+// import { BlogData } from "./BlogCard";
 
-// const dataArray: BlogData[] = [
-//   {
-//     id: "001",
-//     url: "https://i.imgur.com/Cij5vdL.png",
-//     title: "Card 1",
-//     description:
-//       "Resident Evil Village is a direct sequel to 2017’s Resident Evil 7, but takes a very different direction to its predecessor, namely the fact that this time round instead of fighting against various mutated zombies, you’re now dealing with more occult enemies like werewolves and vampires.",
-//     date: "2025/03/15",
-//   },
-//   {
-//     id: "002",
-//     url: "/oist.jpg",
-//     title: "Card 2",
-//     description: "Description 2",
-//     date: "2024/12/01",
-//   },
-//   {
-//     id: "003",
-//     url: "/radwimps.jpg",
-//     title: "Card 3",
-//     description: "Description 3",
-//     date: "2024/10/10",
-//   },
-// ];
+import { redirect } from "next/navigation";
+import ClientPagination from "./ClientPagination";
+import { getPostsOffsetLimit } from "../_lib/getPostsOffsetLimit";
+// import { getPostById } from "../_lib/getPageWithContent";
+// import getPostMarkdownManually from "../_lib/getPostMarkdownManually";
 
-export default async function Home() {
-  // const posts = await fetchAllMetaFromPrivateRepo();
+
+export default async function Home({ searchParams }: { searchParams: { page?: string } }) {
+  // const posts = await getPostsOffsetLimit(0, 5);
   // console.log(posts);
+  // console.log(posts[0].ogp);
+  // console.log(posts[1].ogp);
+
+  // const post = await getPostMarkdownManually("1d37e061-3c51-803e-b31a-d12769658708");
+  // console.log(post.markdown);
+
+  const currentPage = await Number(searchParams.page ?? "1");
+  const limit = 6;
+  const offset = (currentPage - 1) * limit;
 
   const data = await client.get({
     endpoint: "blog",
+    queries: {
+      limit,
+      offset,
+      orders: "-date",
+      fields: "id,title,date,ogp,description"
+    },
   });
 
-  const dataArray: BlogData[] = data.contents.map((item: BlogData) => ({
-    id: item.id,
-    title: item.title,
-    date: item.date,
-    content: item.content,
-    ogp: { url: item.ogp?.url },
-    description: item.description,
-  }));
+  console.log(data);
+
+  const { posts, total } = await getPostsOffsetLimit(offset, limit);
+// console.log("Total posts:", total);
+// console.log("Fetched posts:", posts);
+
+  console.log(posts);
+
+  // const totalCount = data.totalCount; // microCMSのAPIに含まれている
+  const totalPages = Math.ceil(total / limit);
+
+  // 不正なページにアクセスした場合
+  if (currentPage < 1 || currentPage > totalPages) {
+    redirect("/blog?page=1");
+  }
+
+  // const dataArray: BlogData[] = data.contents.map((item: BlogData) => ({
+  //   id: item.id,
+  //   title: item.title,
+  //   date: item.date,
+  //   content: item.content,
+  //   ogp: { url: item.ogp?.url },
+  //   description: item.description,
+  // }));
 
   return (
     <>
       <Header />
       <div className="bg-gray-100">
         <GlayImage title="Blog" url="/poland.jpg" />
-        {/* <Space h="xl" /> */}
-        {/* <Text ta="center" size="40px" fw={700}>
-          Read blogs
-        </Text> */}
         <Space h="xl" />
-        {/* <ul className="space-y-8 px-4 max-w-3xl mx-auto">
-          {posts.map((post) => (
-            <li key={post.id} className="p-4 border rounded shadow bg-white">
-              <h2 className="text-xl font-semibold">{post.title}</h2>
-              <p className="text-sm text-gray-500 mb-2">{post.date}</p>
-              <p>{post.description}</p>
-            </li>
-          ))}
-        </ul> */}
-        <BlogGrid dataArray={dataArray} />
+        <BlogGrid dataArray={posts} />
+        <Space h="xl" />
+        <div className="flex justify-center">
+
+          <ClientPagination total={totalPages} />
+        </div>
         <Space h="xl" />
       </div>
       <Footer />

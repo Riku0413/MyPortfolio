@@ -79,6 +79,7 @@ export default function Header() {
           <Drawer
             opened={opened}
             onClose={close}
+            // position="top"
             title={
               <Link href="/">
                 <Group className="cursor-pointer">
