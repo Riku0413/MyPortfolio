@@ -4,6 +4,7 @@ import {
   IconBrandInstagram,
   IconBrandGithub,
   IconBrandX,
+  IconBrandLinkedin,
 } from "@tabler/icons-react";
 import { ActionIcon, Group } from "@mantine/core";
 import classes from "./Footer.module.css";
@@ -66,7 +67,7 @@ export default function Footer() {
             rel="noopener noreferrer"
           >
             <ActionIcon size="lg" variant="default" radius="xl">
-              <IconBrandInstagram size={18} stroke={1.5} />
+              <IconBrandLinkedin size={18} stroke={1.5} />
             </ActionIcon>
           </a>
           <a

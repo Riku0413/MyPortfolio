@@ -9,11 +9,13 @@ import {
   Space,
   Text,
   useMantineTheme,
+  Loader,
 } from "@mantine/core";
 import classes from "./BlogCard.module.css";
 import NextImage from "next/image";
 import Link from "next/link";
 import { formatToJSTDate } from "../_lib/formatToJSTDate";
+import { useState } from "react";
 
 // export type BlogData = {
 //   id: string;
@@ -45,6 +47,7 @@ export type BlogData = {
 export default function BlogCard({ data }: { data: BlogData }) {
   const theme = useMantineTheme();
   const isSmallScreen = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const [imageLoading, setImageLoading] = useState(true);
 
   const href = `/blog/${data.id}`;
 
@@ -63,6 +66,11 @@ export default function BlogCard({ data }: { data: BlogData }) {
           <div style={{ display: "flex", width: "100%", height: "150px" }}>
             <Card.Section className="pr-4">
               <div className="relative h-full w-[150px]">
+                {imageLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-100/50">
+                    <Loader size="sm" />
+                  </div>
+                )}
                 <NextImage
                   src={data.ogp?.url ?? "/default.jpg"}
                   alt={data.title}
@@ -70,6 +78,7 @@ export default function BlogCard({ data }: { data: BlogData }) {
                   className="object-cover"
                   priority
                   loading="eager"
+                  onLoadingComplete={() => setImageLoading(false)}
                 />
               </div>
             </Card.Section>
@@ -111,7 +120,12 @@ export default function BlogCard({ data }: { data: BlogData }) {
         component="div"
       >
         <Card.Section>
-          <div className="relative w-full h-[200px]">
+          <div className="relative w-full h-[250px]">
+            {imageLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-100/50">
+                <Loader size="sm" />
+              </div>
+            )}
             <NextImage
               src={data.ogp?.url ?? "/default.jpg"}
               alt={data.title}
@@ -119,6 +133,7 @@ export default function BlogCard({ data }: { data: BlogData }) {
               className="object-cover"
               priority
               loading="eager"
+              onLoadingComplete={() => setImageLoading(false)}
             />
           </div>
         </Card.Section>

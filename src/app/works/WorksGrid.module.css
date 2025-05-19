@@ -1,12 +1,29 @@
 .card {
   transition:
     transform 150ms ease,
-    box-shadow 150ms ease;
+    box-shadow 150ms ease,
+    background-color 150ms ease;
 
   &:hover {
     transform: scale(1.01);
     box-shadow: var(--mantine-shadow-md);
   }
+
+  &:active {
+    background-color: var(--mantine-color-gray-2);
+  }
+}
+
+.cardContent {
+  position: relative;
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: background-color 150ms ease;
+  border-radius: var(--mantine-radius-md);
 }
 
 .title {

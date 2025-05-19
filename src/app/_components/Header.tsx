@@ -7,7 +7,8 @@ import Link from "next/link";
 import { Divider } from "@mantine/core";
 import { Avatar } from "@mantine/core";
 import { kanit } from "../_lib/font";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useTransition } from "react";
 
 const links = [
   { link: "/", label: "Home" },
@@ -19,6 +20,15 @@ const links = [
 export default function Header() {
   const [opened, { toggle, close }] = useDisclosure(false);
   const pathname = usePathname();
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+
+  const handleNavigation = (href: string) => {
+    startTransition(() => {
+      router.push(href);
+      close();
+    });
+  };
 
   const items = links.map((link) => {
     const isActive = pathname === link.link;
@@ -30,7 +40,7 @@ export default function Header() {
         className={`block leading-none px-3 py-2 rounded-sm text-sm font-bold transition ${
           isActive
             ? "text-sky-600"
-            : "text-gray-700 dark:text-gray-100 hover:text-sky-600"
+            : "text-gray-700 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md"
         }`}
       >
         {link.label}
@@ -99,28 +109,44 @@ export default function Header() {
               <nav className="flex flex-col space-y-4">
                 <Link
                   href="/"
-                  onClick={close}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = "/";
+                    close();
+                  }}
                   className="text-lg text-gray-700 hover:text-sky-600 transition-colors"
                 >
                   Home
                 </Link>
                 <Link
                   href="/research"
-                  onClick={close}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = "/research";
+                    close();
+                  }}
                   className="text-lg text-gray-700 hover:text-sky-600 transition-colors"
                 >
                   Research
                 </Link>
                 <Link
                   href="/works"
-                  onClick={close}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = "/works";
+                    close();
+                  }}
                   className="text-lg text-gray-700 hover:text-sky-600 transition-colors"
                 >
                   Works
                 </Link>
                 <Link
                   href="/blog"
-                  onClick={close}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = "/blog";
+                    close();
+                  }}
                   className="text-lg text-gray-700 hover:text-sky-600 transition-colors"
                 >
                   Blog
