@@ -5,12 +5,15 @@ import { Space } from "@mantine/core";
 import ResearchGrid from "./ResearchGrid";
 import { getResearchOffsetLimit } from "../_lib/getResearchOffsetLimit";
 
-interface PageProps {
-  searchParams: { [key: string]: string | string[] | undefined };
-}
+type SearchParams = { [key: string]: string | string[] | undefined }
 
-export default async function Home({ searchParams }: PageProps) {
-  const pageParam = searchParams.page;
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<SearchParams>
+}) {
+  const params = await searchParams;
+  const pageParam = params.page;
   const page = typeof pageParam === 'string' ? Number(pageParam) : 1;
   const limit = 10;
   const offset = (page - 1) * limit;

@@ -83,7 +83,7 @@ interface ImageBlock extends BaseBlock {
 export type NotionBlock = TextBlock | CodeBlock | ImageBlock;
 
 export function isNotionBlock(block: PartialBlockObjectResponse | BlockObjectResponse): block is NotionBlock {
-  if (!block.type) return false;
+  if (!('type' in block) || typeof block.type !== 'string') return false;
   
   const validTypes: BlockType[] = [
     "paragraph",

@@ -10,11 +10,13 @@ import { getBlogsOffsetLimit } from "../_lib/getBlogsOffsetLimit";
 // import { getPostById } from "../_lib/getPageWithContent";
 // import getPostMarkdownManually from "../_lib/getPostMarkdownManually";
 
-type Props = {
-  searchParams: { [key: string]: string | string[] | undefined }
-}
+type SearchParams = { [key: string]: string | string[] | undefined }
 
-export default async function Home({ searchParams }: Props) {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<SearchParams>
+}) {
   // const posts = await getPostsOffsetLimit(0, 5);
   // console.log(posts);
   // console.log(posts[0].ogp);
@@ -23,7 +25,8 @@ export default async function Home({ searchParams }: Props) {
   // const post = await getPostMarkdownManually("1d37e061-3c51-803e-b31a-d12769658708");
   // console.log(post.markdown);
 
-  const currentPage = await Number(searchParams.page ?? "1");
+  const params = await searchParams;
+  const currentPage = await Number(params.page ?? "1");
   const limit = 6;
   const offset = (currentPage - 1) * limit;
 
