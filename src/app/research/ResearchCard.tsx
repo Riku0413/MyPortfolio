@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, Group, Text, AspectRatio, Space, Loader } from "@mantine/core";
+import { Card, Group, Text, Space, Loader } from "@mantine/core";
 import Image from "next/image";
 import { formatToJSTDate } from "../_lib/formatToJSTDate";
 import { useState, useEffect } from "react";

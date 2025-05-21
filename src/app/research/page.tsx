@@ -3,7 +3,6 @@ import Footer from "../_components/Footer";
 import GlayImage from "../_components/GlayImage";
 import { Space } from "@mantine/core";
 import ResearchGrid from "./ResearchGrid";
-import { ResearchData } from "./ResearchCard";
 import { getResearchOffsetLimit } from "../_lib/getResearchOffsetLimit";
 
 interface PageProps {
@@ -16,7 +15,7 @@ export default async function Home({ searchParams }: PageProps) {
   const limit = 10;
   const offset = (page - 1) * limit;
 
-  const { posts: dataArray, total } = await getResearchOffsetLimit(offset, limit);
+  const { posts: dataArray } = await getResearchOffsetLimit(offset, limit);
 
   return (
     <>

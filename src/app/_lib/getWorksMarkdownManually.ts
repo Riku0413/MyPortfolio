@@ -1,7 +1,7 @@
 import { Client } from "@notionhq/client";
 import blocksToMarkdown from "./blocksToMarkdown";
 import { WorksNotionPage } from "./notionTypes";
-import { NotionBlock, isNotionBlock } from "./types/notion";
+import { isNotionBlock } from "./types/notion";
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 

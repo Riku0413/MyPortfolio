@@ -17,7 +17,6 @@ export default async function Page({
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const path = await Promise.resolve(params.id.split("/").pop() || "");
-  const currentPage = await Promise.resolve(searchParams.page || "1");
 
   // const data = await client.get({
   //   endpoint: `blog/${path}`,

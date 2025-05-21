@@ -47,10 +47,10 @@ export default function TableOfContents({ content }: { content: string }) {
     const handleScroll = () => {
       if (!tocRef.current || !containerRef.current) return;
       
-      const containerRect = containerRef.current.getBoundingClientRect();
+      // const containerRect = containerRef.current.getBoundingClientRect();
       const scrollY = window.scrollY;
-      const tocHeight = tocRef.current.offsetHeight;
-      const viewportHeight = window.innerHeight;
+      // const tocHeight = tocRef.current.offsetHeight;
+      // const viewportHeight = window.innerHeight;
       const fixedPosition = 100; // 固定位置の上部からの距離
       
       // 目次が実際に固定位置に到達した時点で固定状態に切り替える

@@ -21,15 +21,6 @@ const links = [
 export default function Header() {
   const [opened, { toggle, close }] = useDisclosure(false);
   const pathname = usePathname();
-  const router = useRouter();
-  const [isPending, startTransition] = useTransition();
-
-  const handleNavigation = (href: string) => {
-    startTransition(() => {
-      router.push(href);
-      close();
-    });
-  };
 
   const items = links.map((link) => {
     const isActive = pathname === link.link;
