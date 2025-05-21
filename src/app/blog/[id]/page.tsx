@@ -11,7 +11,6 @@ import TableOfContents from "./TableOfContents";
 
 export default async function Page({
   params,
-  searchParams,
 }: {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };

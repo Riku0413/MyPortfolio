@@ -7,8 +7,7 @@ import Link from "next/link";
 import { Divider } from "@mantine/core";
 import { Avatar } from "@mantine/core";
 import { kanit } from "../_lib/font";
-import { usePathname, useRouter } from "next/navigation";
-import { useTransition } from "react";
+import { usePathname } from "next/navigation";
 // import LanguageSwitch from "./LanguageSwitch";
 
 const links = [
