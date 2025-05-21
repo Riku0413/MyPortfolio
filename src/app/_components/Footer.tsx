@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  IconBrandInstagram,
   IconBrandGithub,
   IconBrandX,
   IconBrandLinkedin,

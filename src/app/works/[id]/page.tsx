@@ -3,9 +3,7 @@ import Footer from "../../_components/Footer";
 import { Space } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
-import { notion } from "../../_lib/notion";
 import { formatToJSTDate } from "@/app/_lib/formatToJSTDate";
-import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { convertMarkdownToHtml } from "../../_lib/markdown";
 import getWorksMarkdownManually from "../../_lib/getWorksMarkdownManually";
 

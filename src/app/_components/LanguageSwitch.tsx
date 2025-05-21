@@ -27,7 +27,7 @@ export default function LanguageSwitch() {
     <Menu.Item
       leftSection={
         <Group gap="xs">
-          <Image src={item.image} w={20} h={20} />
+          <Image src={item.image} w={20} h={20} alt={`${item.label} flag`} />
         </Group>
       }
       onClick={() => setLanguage(item.value)}
@@ -52,7 +52,7 @@ export default function LanguageSwitch() {
       <Menu.Target>
         <UnstyledButton className={classes.control} data-expanded={opened || undefined}>
           <Group gap="xs">
-            <Image src={selected.image} w={20} h={20} />
+            <Image src={selected.image} w={20} h={20} alt={`${selected.label} flag`} />
             <span className={classes.label}>{selected.label}</span>
           </Group>
           <IconChevronDown size={16} className={classes.icon} stroke={1.5} />

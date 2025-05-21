@@ -3,7 +3,6 @@ import Footer from "./_components/Footer";
 import AboutMe from "./_home/AboutMe";
 import { Text } from "@mantine/core";
 import { Space } from "@mantine/core";
-// import Featured from "./_home/Featured";
 import History from "./_home/History";
 import GlayImage from "./_components/GlayImage";
 
@@ -24,14 +23,6 @@ export default function Home() {
 
         <Space h="xl" />
 
-        {/* <Text ta="center" size="40px" fw={700}>
-          Featured
-        </Text>
-        <Space h="xl" />
-
-        <Featured />
-
-        <Space h="xl" /> */}
         <Text ta="center" size="40px" fw={700}>
           CV
         </Text>

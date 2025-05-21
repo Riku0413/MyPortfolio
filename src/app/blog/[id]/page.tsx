@@ -3,13 +3,10 @@ import Footer from "../../_components/Footer";
 import { Space } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
-// import { client } from "../../_lib/microCMS";
 import { formatToJSTDate } from "@/app/_lib/formatToJSTDate";
 import { notFound } from "next/navigation";
-// import ArrowLeftIcon from "../../_components/ArrowLeftIcon";
 import getBlogMarkdownManually from "@/app/_lib/getBlogMarkdownManually";
 import { convertMarkdownToHtml } from "../../_lib/markdown";
-import { Timeline } from '@mantine/core';
 import TableOfContents from "./TableOfContents";
 
 export default async function Page({
