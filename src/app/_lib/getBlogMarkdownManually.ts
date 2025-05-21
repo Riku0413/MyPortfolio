@@ -12,7 +12,7 @@ interface AdjacentPost {
 }
 
 async function getAdjacentPosts(currentDate: string): Promise<{ prev?: AdjacentPost; next?: AdjacentPost }> {
-  const databaseId = process.env.NOTION_DATABASE_ID!;
+  const databaseId = process.env.NOTION_MY_BLOG_DATABASE_ID!;
   
   // 前後の記事を取得するためのクエリ
   const res = await notion.databases.query({

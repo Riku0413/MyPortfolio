@@ -5,7 +5,7 @@ import { NotionPage } from "./notionTypes";
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 export async function getBlogsOffsetLimit(offset: number, limit: number): Promise<{ posts: BlogData[], total: number }> {
-  const databaseId = process.env.NOTION_DATABASE_ID!;
+  const databaseId = process.env.NOTION_MY_BLOG_DATABASE_ID!;
   const pageSize = 10;
   let fetched: NotionPage[] = [];
   let cursor: string | undefined = undefined;
