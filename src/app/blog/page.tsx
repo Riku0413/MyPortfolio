@@ -10,8 +10,11 @@ import { getBlogsOffsetLimit } from "../_lib/getBlogsOffsetLimit";
 // import { getPostById } from "../_lib/getPageWithContent";
 // import getPostMarkdownManually from "../_lib/getPostMarkdownManually";
 
+type Props = {
+  searchParams: { [key: string]: string | string[] | undefined }
+}
 
-export default async function Home({ searchParams }: { searchParams: { page?: string } }) {
+export default async function Home({ searchParams }: Props) {
   // const posts = await getPostsOffsetLimit(0, 5);
   // console.log(posts);
   // console.log(posts[0].ogp);
