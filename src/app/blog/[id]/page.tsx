@@ -12,9 +12,9 @@ import TableOfContents from "./TableOfContents";
 export default async function Page({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const path = await Promise.resolve(params.id.split("/").pop() || "");
+  const path = (await params).id.split("/").pop() || "";
 
   // const data = await client.get({
   //   endpoint: `blog/${path}`,
