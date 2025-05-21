@@ -3,22 +3,12 @@ import Footer from "../_components/Footer";
 import GlayImage from "../_components/GlayImage";
 import { Space } from "@mantine/core";
 import WorksGrid from "./WorksGrid";
-import { client } from "../_lib/microCMS";
-import { WorksData } from "./WorksGrid";
+import { getWorksOffsetLimit } from "../_lib/getWorksOffsetLimit";
 
 export default async function Home() {
-  const data = await client.get({
-    endpoint: "works",
-  });
-  console.log(data);
-  const dataArray: WorksData[] = data.contents.map((item: WorksData) => ({
-    id: item.id,
-    title: item.title,
-    date: item.date,
-    description: item.description,
-    content: item.content,
-    ogp: { url: item.ogp?.url },
-  }));
+  const { works: dataArray } = await getWorksOffsetLimit(0, 10);
+
+  console.log(dataArray);
 
   return (
     <>

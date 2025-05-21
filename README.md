@@ -36,21 +36,18 @@
 
 ## 4. To Do
 
-- .heic への対応
+#### 優先度 高
+- コード整理
 - 記事の中身を書く
-- works、research も notion に統合する
-　- DBは作ったので、あとはAPIの調整のみ！
-- 余計な microCMS のコードを消す
-- エラーと警告の解決
-- CSR と SSR を適切に分ける
 - rikukobayashi.com を割り当てる
+- サーバーどれにするか決める
+- パフォーマンス改善（まずはリクエスト送った時のコンソール上での警告を解決する）
+
+#### 優先度 低
+- CSR と SSR を適切に分ける
 - worksに以下を追加
   - 初回ハッカソン作品、Google Map API、CVで何か、世界遺産探訪、複数画像の追加学習、ものゼミの作品
 - 日英切り替え
-- ページネーション
-- コード整理
-- サーバーどれにするか決める
-- type: any をなくす
 
 ## 5. 参考リンク
 
@@ -59,9 +56,13 @@
 - [CSS 1](https://animate-club.com/text/css_text_animation/)
 - [CSS 2](https://deshinon.com/2019/03/04/simpl-osyare-title-css/#google_vignette)
 
-### UI コンポーネント
+### UI
 
 - [Aceternity UI](https://ui.aceternity.com/components)
+- [言語アイコン](https://www.flaticon.com/packs/countrys-flags)
+- [load animation](https://photopizza.design/css_loading/)
+- [mantine タグ](https://mantine.dev/core/badge/)
+- [mantine 目次](https://ui.mantine.dev/category/toc/)
 
 ### Notion API
 

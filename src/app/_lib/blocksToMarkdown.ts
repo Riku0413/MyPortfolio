@@ -1,28 +1,27 @@
-export default function blocksToMarkdown(blocks: any[]): string {
+import { NotionBlock, RichText } from './types/notion';
+
+export default function blocksToMarkdown(blocks: NotionBlock[]): string {
   return blocks
     .map((block) => {
-      const type = block.type;
-      const data = block[type];
-
-      switch (type) {
+      switch (block.type) {
         case "paragraph":
-          return getRichText(data.rich_text);
+          return getRichText(block.paragraph?.rich_text || []);
         case "heading_1":
-          return `# ${getRichText(data.rich_text)}`;
+          return `# ${getRichText(block.heading_1?.rich_text || [])}`;
         case "heading_2":
-          return `## ${getRichText(data.rich_text)}`;
+          return `## ${getRichText(block.heading_2?.rich_text || [])}`;
         case "heading_3":
-          return `### ${getRichText(data.rich_text)}`;
+          return `### ${getRichText(block.heading_3?.rich_text || [])}`;
         case "bulleted_list_item":
-          return `- ${getRichText(data.rich_text)}`;
+          return `- ${getRichText(block.bulleted_list_item?.rich_text || [])}`;
         case "numbered_list_item":
-          return `1. ${getRichText(data.rich_text)}`;
+          return `1. ${getRichText(block.numbered_list_item?.rich_text || [])}`;
         case "quote":
-          return `> ${getRichText(data.rich_text)}`;
+          return `> ${getRichText(block.quote?.rich_text || [])}`;
         case "code":
-          return `\`\`\`${data.language || ""}\n${getRichText(data.rich_text)}\n\`\`\``;
+          return `\`\`\`${block.code?.language || ""}\n${getRichText(block.code?.rich_text || [])}\n\`\`\``;
         case "image":
-          const url = data.external?.url || data.file?.url;
+          const url = block.image?.external?.url || block.image?.file?.url;
           return `![image](${url})`;
         default:
           return ""; // 対応していないタイプは無視
@@ -31,6 +30,9 @@ export default function blocksToMarkdown(blocks: any[]): string {
     .join("\n\n");
 }
 
-function getRichText(richText: any[]): string {
+function getRichText(richText: RichText[]): string {
+  if (!richText || !Array.isArray(richText)) {
+    return "";
+  }
   return richText.map((t) => t.plain_text).join("");
 }

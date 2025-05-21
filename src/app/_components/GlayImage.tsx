@@ -10,7 +10,7 @@ export default function GlayImage({ title, url }: GlayImageProps) {
     <div className="relative w-full h-[50vh] max-h-[450px] bg-black">
       <Image
         src={url}
-        alt="Mount Fuji"
+        alt={title}
         fill
         className="object-cover filter grayscale"
         priority

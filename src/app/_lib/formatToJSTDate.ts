@@ -4,12 +4,13 @@
  * @returns A formatted date string in JST as "YYYY/MM/DD"
  */
 export function formatToJSTDate(utcDateStr: string): string {
+  // Parse the date in UTC
   const date = new Date(utcDateStr);
+  
+  // Use UTC methods to ensure consistent timezone handling
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
 
-  // 日本時間に変換（UTC → JST）
-  const jstYear = date.getFullYear();
-  const jstMonth = String(date.getMonth() + 1).padStart(2, "0"); // 月は0始まり
-  const jstDate = String(date.getDate()).padStart(2, "0");
-
-  return `${jstYear}/${jstMonth}/${jstDate}`;
+  return `${year}/${month}/${day}`;
 }

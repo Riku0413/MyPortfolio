@@ -9,6 +9,7 @@ import { Avatar } from "@mantine/core";
 import { kanit } from "../_lib/font";
 import { usePathname, useRouter } from "next/navigation";
 import { useTransition } from "react";
+// import LanguageSwitch from "./LanguageSwitch";
 
 const links = [
   { link: "/", label: "Home" },
@@ -61,24 +62,10 @@ export default function Header() {
         </Link>
 
         <Group>
-          {/* <Autocomplete
-            className={classes.search}
-            placeholder="Search"
-            leftSection={<IconSearch size={16} stroke={1.5} />}
-            data={[
-              "React",
-              "Angular",
-              "Vue",
-              "Next.js",
-              "Riot.js",
-              "Svelte",
-              "Blitz.js",
-            ]}
-            // visibleFrom="xs"
-          /> */}
           <Group ml={50} gap={5} visibleFrom="md">
             {items}
           </Group>
+          {/* <LanguageSwitch /> */}
           <Burger
             opened={opened}
             onClick={toggle}
@@ -89,7 +76,6 @@ export default function Header() {
           <Drawer
             opened={opened}
             onClose={close}
-            // position="top"
             title={
               <Link href="/">
                 <Group className="cursor-pointer">
