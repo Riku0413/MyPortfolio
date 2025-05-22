@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import getBlogMarkdownManually from "@/app/_lib/getBlogMarkdownManually";
 import { convertMarkdownToHtml } from "../../_lib/markdown";
 import TableOfContents from "./TableOfContents";
+import ImagePageWrapper from "../../_lib/ImagePageWrapper";
 
 export default async function Page({
   params,
@@ -29,7 +30,7 @@ export default async function Page({
   if (!data) return notFound();
 
   return (
-    <>
+    <ImagePageWrapper>
       <Header />
       <div className="bg-gray-100">
         <Space h="xl" />
@@ -38,6 +39,9 @@ export default async function Page({
             <h1 className="font-bold text-2xl w-[80%] text-center leading-[1.5]">
               {data.title}
             </h1>
+            <p className="text-gray-500 mt-4 w-[80%] text-center text-sm">
+              {data.description}
+            </p>
             <p className="text-sm text-gray-500 mt-8 mb-4">
               {formatToJSTDate(data.date)}
             </p>
@@ -51,17 +55,19 @@ export default async function Page({
                 />
               </div>
               <div className="mt-8 flex justify-between px-4 sm:px-0">
-                {data.prev && (
-                  <Link href={`/blog/${data.prev.id}`} className="flex items-center text-gray-600 hover:text-gray-900">
+                {data.prev ? (
+                  <Link href={`/blog/${data.prev.id}`} className="flex items-center text-gray-600 transition-colors duration-200 hover:bg-gray-100 active:bg-gray-200 rounded-lg p-2">
                     <Image src="/arrow-left.svg" alt="Previous" width={20} height={20} className="mr-2" />
                     <div>
                       <div className="text-sm text-gray-500">Previous</div>
                       <div className="font-medium">{data.prev.title}</div>
                     </div>
                   </Link>
+                ) : (
+                  <div></div>
                 )}
                 {data.next && (
-                  <Link href={`/blog/${data.next.id}`} className="flex items-center text-gray-600 hover:text-gray-900">
+                  <Link href={`/blog/${data.next.id}`} className="flex items-center text-gray-600 transition-colors duration-200 hover:bg-gray-100 active:bg-gray-200 rounded-lg p-2">
                     <div className="text-right">
                       <div className="text-sm text-gray-500">Next</div>
                       <div className="font-medium">{data.next.title}</div>
@@ -79,6 +85,6 @@ export default async function Page({
         <Space h="xl" />
       </div>
       <Footer />
-    </>
+    </ImagePageWrapper>
   );
 }

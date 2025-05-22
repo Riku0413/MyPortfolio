@@ -21,3 +21,25 @@
     margin-bottom: var(--mantine-spacing-sm);
   }
 }
+
+.links a {
+  color: var(--mantine-color-gray-6);
+  text-decoration: none;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--mantine-color-gray-6);
+  transition: width 0.3s ease;
+}
+
+.links a:hover::after {
+  width: 100%;
+}

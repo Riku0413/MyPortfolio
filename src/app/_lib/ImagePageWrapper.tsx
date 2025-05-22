@@ -27,16 +27,17 @@ export default function ImagePageWrapper({ children }: { children: React.ReactNo
       });
     };
 
-    // 少し描画を待ってから画像チェック（重要！）
-    const timeout = setTimeout(waitForImages, 1000); // ← この100msが大事
+    const timeout = setTimeout(waitForImages, 1000);
 
     return () => clearTimeout(timeout);
   }, []);
 
   if (!isReady) {
-    return <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
-      Loading images...
-    </div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+      </div>
+    );
   }
 
   return <>{children}</>;

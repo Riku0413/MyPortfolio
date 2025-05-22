@@ -53,7 +53,6 @@ export default async function Home({
         <BlogGrid dataArray={posts} />
         <Space h="xl" />
         <div className="flex justify-center">
-
           <ClientPagination total={totalPages} />
         </div>
         <Space h="xl" />

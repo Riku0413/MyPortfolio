@@ -50,5 +50,5 @@
 }
 
 .footer {
-  margin-top: var(--mantine-spacing-md);
+  margin-top: var(--mantine-spacing-xs);
 }

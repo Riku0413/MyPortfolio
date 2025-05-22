@@ -82,7 +82,7 @@ export default function Header() {
           >
             <Divider my="sm" />
             <ScrollArea className="h-full">
-              <nav className="flex flex-col space-y-4">
+              <nav className="flex flex-col space-y-2">
                 <Link
                   href="/"
                   onClick={(e) => {
@@ -90,7 +90,7 @@ export default function Header() {
                     window.location.href = "/";
                     close();
                   }}
-                  className="text-lg text-gray-700 hover:text-sky-600 transition-colors"
+                  className="text-lg text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-3 py-2 transition-colors"
                 >
                   Home
                 </Link>
@@ -101,7 +101,7 @@ export default function Header() {
                     window.location.href = "/research";
                     close();
                   }}
-                  className="text-lg text-gray-700 hover:text-sky-600 transition-colors"
+                  className="text-lg text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-3 py-2 transition-colors"
                 >
                   Research
                 </Link>
@@ -112,7 +112,7 @@ export default function Header() {
                     window.location.href = "/works";
                     close();
                   }}
-                  className="text-lg text-gray-700 hover:text-sky-600 transition-colors"
+                  className="text-lg text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-3 py-2 transition-colors"
                 >
                   Works
                 </Link>
@@ -123,7 +123,7 @@ export default function Header() {
                     window.location.href = "/blog";
                     close();
                   }}
-                  className="text-lg text-gray-700 hover:text-sky-600 transition-colors"
+                  className="text-lg text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-3 py-2 transition-colors"
                 >
                   Blog
                 </Link>

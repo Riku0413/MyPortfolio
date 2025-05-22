@@ -119,7 +119,7 @@ export default function BlogCard({ data }: { data: BlogData }) {
                   {data.title}
                 </Text>
 
-                <Text fz="sm" c="dimmed" lineClamp={3}>
+                <Text fz="xs" c="dimmed" lineClamp={3}>
                   {data.description}
                 </Text>
               </div>
@@ -143,7 +143,7 @@ export default function BlogCard({ data }: { data: BlogData }) {
         withBorder
         radius="md"
         className={classes.card}
-        style={{ height: "380px", cursor: "pointer" }}
+        style={{ height: "400px", cursor: "pointer" }}
         component="div"
       >
         <Card.Section>
@@ -187,7 +187,7 @@ export default function BlogCard({ data }: { data: BlogData }) {
             </Text>
             <Space h="xs" />
 
-            <Text fz="sm" c="dimmed" lineClamp={4}>
+            <Text fz="xs" c="dimmed" lineClamp={3}>
               {data.description}
             </Text>
           </div>
