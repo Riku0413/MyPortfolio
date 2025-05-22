@@ -8,7 +8,6 @@ import { notFound } from "next/navigation";
 import getBlogMarkdownManually from "@/app/_lib/getBlogMarkdownManually";
 import { convertMarkdownToHtml } from "../../_lib/markdown";
 import TableOfContents from "./TableOfContents";
-import ImagePageWrapper from "../../_lib/ImagePageWrapper";
 
 export default async function Page({
   params,
@@ -30,7 +29,7 @@ export default async function Page({
   if (!data) return notFound();
 
   return (
-    <ImagePageWrapper>
+    <>
       <Header />
       <div className="bg-gray-100">
         <Space h="xl" />
@@ -85,6 +84,6 @@ export default async function Page({
         <Space h="xl" />
       </div>
       <Footer />
-    </ImagePageWrapper>
+    </>
   );
 }
